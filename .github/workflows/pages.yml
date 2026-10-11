@@ -25,7 +25,7 @@ jobs:
       - name: Assemble site
         run: |
           mkdir _site
-          cp -r index.html presentation.html assets SONA2026_SDG_Dashboard.pdf SONA2026_SDG_Dashboard.png _site/
+          cp -r index.html presentation.html report.html assets SONA2026_SDG_Dashboard.pdf SONA2026_SDG_Dashboard.png _site/
           touch _site/.nojekyll
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

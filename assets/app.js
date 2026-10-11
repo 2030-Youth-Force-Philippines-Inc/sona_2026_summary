@@ -5,6 +5,7 @@
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
   var TIER = { full: "Covered extensively", brief: "Mentioned briefly", none: "Not covered" };
+  var PACE_TXT = { onpace: "On pace to reach 2030 targets.", improving: "Improving since 2015, but slower than needed for 2030.", regress: "Regressing — moving away from 2030 targets.", nodata: "Insufficient indicators to assess pace." };
   var TIER_SHORT = { full: "Extensive", brief: "Brief", none: "None" };
   var byN = function (n) { return D.SDGS.filter(function (s) { return s.n === n; })[0]; };
   var ARROW = '<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
@@ -135,7 +136,7 @@
       '<div class="row2"><h4>What remains unresolved</h4><p class="gapbox' + (s.tier === "none" ? " red" : "") + '">' + esc(s.gap) + "</p></div>" +
       '<div class="row2"><h4>Congressional lens</h4><p>' + esc(s.lens) + "</p></div>" +
       '<div class="row2"><h4>Suggested indicator</h4><p>' + esc(s.indicator) + "</p></div>" +
-      '<div class="row2"><h4>Progress status</h4><p>Insufficient Data — no baseline, target or trend in the summary.</p></div>' +
+      '<div class="row2"><h4>PSA pace of progress (data as of May 2026)</h4><p>' + PACE_TXT[s.pace] + '</p></div>' +
       '<div class="row2"><button class="btn" id="seeF">See related findings →</button></div>';
     $("#seeF").addEventListener("click", function () { $("#sdgSel").value = n; fState.sdg = String(n); renderFindings(); location.hash = "#findings"; });
     if (scroll) location.hash = "#sdgs";

@@ -239,5 +239,8 @@ window.DATA = (function () {
     ]
   };
 
+  const PACE = { 3: "regress", 11: "regress", 12: "onpace", 14: "onpace", 5: "nodata", 10: "nodata", 13: "nodata", 16: "nodata", 17: "nodata" };
+  SDGS.forEach(function (g) { g.pace = PACE[g.n] || "improving"; });
+
   return { SDGS, CLASSES, FINDINGS, ACTIONS, CHAIN, YOUTH };
 })();
