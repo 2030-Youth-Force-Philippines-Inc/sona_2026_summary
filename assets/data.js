@@ -158,24 +158,30 @@ window.DATA = (function () {
   ];
 
   const ACTIONS = [
-    { id: "requests", title: "Take up measures the address asked Congress to consider",
+    { id: "requests", title: "Take up measures the address asked Congress to consider", short: "Bills and hearings · tax bills originate in the House",
       issue: "The President asked Congress for: a higher personal income-tax exemption (₱250K→₱350K), small-business and amnesty relief; an EPIRA amendment on system-loss charges; a “Sariling Kuryente” Act. A Building Code amendment is being pursued and a solid-waste law update is planned.",
       mechanism: "Bills and committee hearings. Tax and appropriation bills originate in the House (Const. Art. VI §24). Committee referral to be confirmed with the Legislative Secretariat.",
       options: ["Request revenue-forgone estimates from the executive (none in the summary)", "Sequence measures by household impact and fiscal cost", "Hold hearings with the finance and energy agencies and consumers’ representatives", "Pair the Building Code amendment with accessibility provisions (not addressed in the address)"],
       outcome: "Lower tax and electricity-cost burdens for households, if enacted and implemented.",
       sdgs: ["10.4", "7.1", "11.5"], limit: "Proposed measures only; none is enacted. Outcomes depend on final text and implementation." },
-    { id: "budget", title: "Review relief funding and results in the 2027 budget",
+    { id: "budget", title: "Review relief funding and results in the 2027 budget", short: "Appropriations review · oversight hearings",
       issue: "₱60B+ for ~7.5M families runs to year-end; beneficiary results and monitoring were not described.",
       mechanism: "Appropriations review; oversight hearings with DSWD, DOLE and DA.",
       options: ["Require quarterly reach and disbursement data", "Test how the 7.5M-family target is identified and reached", "Decide on continuity or transition beyond year-end", "Request outcome measures tied to poverty and food-insecurity data"],
       outcome: "Relief reaches the intended households and results are visible.",
       sdgs: ["1.3", "2.1"], limit: "Congress appropriates and oversees; targeting and delivery are executive responsibilities." },
-    { id: "resilience", title: "Make resilience and unaddressed goals measurable",
+    { id: "resilience", title: "Make resilience and unaddressed goals measurable", short: "Oversight · budget tagging · legal-basis review",
       issue: "The disaster network and the “State of Imminent Disaster” concept are untested; SDG 6, 12, 14 and 15 lack stated targets.",
       mechanism: "Oversight hearings; budget tagging; review of the concept’s legal basis; request for agency baselines.",
       options: ["Ask agencies for baselines and targets on water, waste, ocean and land", "Add SDG indicators to budget reporting", "Clarify whether new legislation is needed for the Imminent Disaster concept", "Review readiness after the next major event against the 24-hour aim"],
       outcome: "Verified relief delivery in the next disaster; measurable goals where none are stated.",
-      sdgs: ["11.5", "13.1", "6.1"], limit: "Reporting requirements add oversight but do not by themselves improve outcomes." }
+      sdgs: ["11.5", "13.1", "6.1"], limit: "Reporting requirements add oversight but do not by themselves improve outcomes." },
+    { id: "chair", title: "Convene a cross-committee SDG scorecard", short: "Coordination across committees · agency indicator reporting",
+      issue: "No goal has a baseline or target in the summary, and SDG 6, 12, 14 and 15 received no stated targets. A chair-level view could cover all 17 goals rather than only those the address emphasised.",
+      mechanism: "Coordination among House committees; request that agencies report indicators for the goals in each committee’s jurisdiction (arrangement to be confirmed with the Legislative Secretariat).",
+      options: ["Agree a shared indicator list drawn from PSA, UN SDG Database and Voluntary National Review data", "Ask each committee to report on the goals within its jurisdiction on a set schedule", "Publish one scorecard that shows baseline, target and latest data for all 17 goals"],
+      outcome: "A single, evidence-based view of progress across all 17 goals for House deliberation.",
+      sdgs: ["All"], limit: "Reporting improves visibility; it does not by itself change outcomes." }
   ];
 
   const CHAIN = [

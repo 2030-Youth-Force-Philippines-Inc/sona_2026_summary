@@ -4,128 +4,164 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SONA 2026 × SDG 2030 — Congressional Dashboard</title>
-<meta name="description" content="Interactive congressional briefing: what SONA 2026 reported, what remains unresolved, what Congress can do and what to monitor toward the 2030 SDGs.">
+<meta name="description" content="Interactive congressional briefing for the Speaker and SDG chair: what SONA 2026 reported, what remains unresolved, what Congress can do and what to monitor toward the 2030 SDGs.">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="top">
-  <div class="top-in">
-    <a class="brand" href="#overview"><b>SONA 2026 × SDG 2030</b><span>Congressional briefing</span></a>
-    <nav id="nav" aria-label="Sections">
-      <a href="#overview">Overview</a>
-      <a href="#sdgs">SDG explorer</a>
-      <a href="#findings">Findings</a>
-      <a href="#congress">Congress</a>
-      <a href="#monitor">Monitor</a>
-      <a href="#youth">Youth Agenda</a>
-      <a href="#method">Method</a>
-    </nav>
-    <a class="btn ghost" href="presentation.html">Presentation view ↗</a>
-  </div>
-</header>
-
-<main id="main">
-
-  <!-- OVERVIEW -->
-  <section id="overview" class="hero">
-    <div class="wrap">
-      <p class="eyebrow">SONA 2026 × SDG 2030 · Briefing for the Speaker of the House</p>
-      <h1>Delivery was widely reported; measured outcomes and four SDGs remain open.</h1>
-      <p class="lede">What does SONA 2026 reveal about progress toward the Sustainable Development Goals, and what evidence-based considerations emerge for the House as 2030 approaches? Explore the evidence, then the options.</p>
-      <div class="flow" id="flow">
-        <a href="#overview-kpi"><i>1</i><b>Where are we?</b><span>Reported figures</span></a>
-        <a href="#sdgs"><i>2</i><b>What remains unresolved?</b><span>SDG explorer</span></a>
-        <a href="#congress"><i>3</i><b>What can Congress do?</b><span>Action map</span></a>
-        <a href="#monitor"><i>4</i><b>What to monitor?</b><span>Accountability</span></a>
-      </div>
+<div class="app">
+  <!-- top bar -->
+  <header class="bar">
+    <svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4a16 16 0 1 0 16 16" fill="none" stroke="#2d6cb4" stroke-width="7" stroke-linecap="round"/><path d="M20 4a16 16 0 0 1 16 16" fill="none" stroke="#26a69a" stroke-width="7" stroke-linecap="round"/><circle cx="20" cy="20" r="5" fill="#f3b73d"/></svg>
+    <div class="menu">
+      <button class="ttl" id="menuBtn" aria-haspopup="true" aria-expanded="false">SONA 2026 × SDG 2030 <span>Dashboard</span>
+        <svg class="ic" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
+      <nav id="menuList" class="pop" aria-label="Sections" hidden>
+        <a href="#top">Overview</a><a href="#sdgs">SDG explorer</a><a href="#findings">Findings</a>
+        <a href="#congress">Congress</a><a href="#monitor">Monitor</a><a href="#youth">Youth Agenda</a><a href="#method">Method</a>
+        <a href="presentation.html">Presentation view ↗</a>
+      </nav>
     </div>
-  </section>
-
-  <section class="wrap block" id="overview-kpi">
-    <div class="sec-h"><h2>Where are we?</h2><p>Figures as stated in the address. Select a card to open its SDG. <span class="legend"><span class="chip rep">Reported</span> not independently verified · <span class="chip com">Commitment</span> stated goal, in progress</span></p></div>
-    <div class="kpis" id="kpis"></div>
-    <div class="notice"><b>SDG progress status: Insufficient Data.</b> The summary gives no baselines, targets or trends, so no goal is rated On Track, Needs Acceleration or At Risk. Coverage counts show attention in the speech, not progress.</div>
-  </section>
-
-  <!-- SDG EXPLORER -->
-  <section class="wrap block" id="sdgs">
-    <div class="sec-h"><h2>SDG explorer</h2><p>How the address related to each of the 17 goals, and what remains unresolved.</p></div>
-    <div class="toolbar" role="group" aria-label="Filter goals by coverage">
-      <button class="pill on" data-tier="all" aria-pressed="true">All 17</button>
-      <button class="pill" data-tier="full" aria-pressed="false">Extensive · 9</button>
-      <button class="pill" data-tier="brief" aria-pressed="false">Brief · 4</button>
-      <button class="pill" data-tier="none" aria-pressed="false">Not covered · 4</button>
+    <div class="tools">
+      <a class="ibtn" href="#findings" id="goSearch" aria-label="Search findings"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></a>
+      <a class="ibtn" href="#findings" aria-label="Filter findings"><svg class="ic" viewBox="0 0 24 24"><path d="M4 5h16l-6 8v6l-4-2v-4z"/></svg></a>
+      <span class="date"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>SONA · July 2026</span>
+      <a class="avatar" href="presentation.html" title="One-page presentation view">SDG</a>
     </div>
-    <div class="explorer">
+  </header>
+
+  <main id="main">
+    <h1 id="top" class="sr">SONA 2026 × SDG 2030 congressional dashboard</h1>
+
+    <!-- KPI row -->
+    <section class="kpis" id="kpis" aria-label="Headline indicators"></section>
+
+    <!-- chair banner -->
+    <section class="card chair">
+      <div class="chair-ic" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div>
       <div>
-        <div class="tiles" id="tiles" role="list"></div>
-        <h3 class="mini">Passages in the address, by goal</h3>
-        <div class="bars" id="bars"></div>
-        <p class="fine">A passage is a paragraph or discrete statement relating to the goal — a transcript-based proxy for attention, not progress.</p>
+        <h2>Chair’s lens: all 17 goals, not only the headline ones</h2>
+        <p>Prepared for the Speaker in the role of SDG chair. The address gave extensive attention to 9 goals, brief mention to 4, and none to <b>SDG 6, 12, 14 and 15</b>, and it stated no baselines or targets. A cross-committee SDG scorecard is one option for tracking every goal — an option to examine, not a settled recommendation.</p>
       </div>
-      <aside class="detail" id="detail" aria-live="polite"></aside>
+      <a class="btn" href="#sdgs">Open SDG scorecard</a>
+    </section>
+
+    <!-- performance overview -->
+    <section class="card" id="overview">
+      <div class="ch"><h2>Delivery <span>Overview</span></h2><span class="note">Figures as stated in the address</span></div>
+      <div class="split">
+        <div class="pane">
+          <div class="big"><b>45</b> of ~200 <small>power projects completed</small> <span class="chip rep">Reported</span></div>
+          <div id="lineChart" class="chart"></div>
+          <p class="fine">Cumulative projects as stated: 45 completed, 31 more this year, 124 by 2028. Later points are commitments, not results.</p>
+        </div>
+        <div class="pane line-l">
+          <div class="ph"><h3>SDG Attention</h3><span class="fine" style="margin:0">Passages per goal · select a bar</span></div>
+          <div id="barChart" class="chart"></div>
+          <p class="fine">Attention in the speech, not progress. Marker under each goal: filled = extensive, half = brief, empty ring = not covered.</p>
+        </div>
+      </div>
+      <div class="notice"><b>SDG progress status: Insufficient Data.</b> The summary gives no baselines, targets or trends, so no goal is rated On Track, Needs Acceleration or At Risk.</div>
+    </section>
+
+    <!-- reported vs attention -->
+    <div class="two">
+      <div class="stack">
+        <section class="card">
+          <div class="ch"><h2>What Was <span>Reported</span></h2><span class="chip rep">Not independently verified</span></div>
+          <div class="ph"><h3>Top reported results</h3></div>
+          <div class="rows" id="topRes"></div>
+        </section>
+        <section class="card">
+          <div class="ch"><h2>Commitment vs <span>Delivery</span></h2><span class="chip com">Stated goals</span></div>
+          <div class="rows" id="cvd"></div>
+          <p class="fine">Share of each stated goal reported so far; computed from the figures in the address.</p>
+        </section>
+      </div>
+      <div class="stack">
+        <section class="card">
+          <div class="ch"><h2>What Needs <span>Attention</span></h2><svg class="ic warn" viewBox="0 0 24 24"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17v.5"/></svg></div>
+          <div class="ph"><h3>Goals with no coverage</h3><span class="chip ins">4 of 17</span></div>
+          <div class="rows" id="gaps"></div>
+          <div id="gapNote" class="fine"></div>
+        </section>
+        <section class="card">
+          <div class="ch"><h2>Alerts <svg class="ic warn" viewBox="0 0 24 24"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17v.5"/></svg></h2><span class="chip com">Oversight flags</span></div>
+          <div class="alerts" id="alerts"></div>
+        </section>
+      </div>
     </div>
-  </section>
 
-  <!-- FINDINGS -->
-  <section class="wrap block" id="findings">
-    <div class="sec-h"><h2>Findings explorer</h2><p>Each finding is classified so that announcements are never read as outcomes.</p></div>
-    <div class="toolbar">
-      <div id="classPills" role="group" aria-label="Filter by classification"></div>
-      <label class="sel">SDG
-        <select id="sdgSel"></select>
-      </label>
-      <label class="sel grow">Search
-        <input id="q" type="search" placeholder="e.g. rice, PhilHealth, EPIRA…">
-      </label>
+    <!-- SDG explorer -->
+    <section class="card" id="sdgs">
+      <div class="ch"><h2>SDG <span>Explorer</span></h2>
+        <div class="seg" role="group" aria-label="Filter goals by coverage">
+          <button class="on" data-tier="all" aria-pressed="true">All 17</button>
+          <button data-tier="full" aria-pressed="false">Extensive · 9</button>
+          <button data-tier="brief" aria-pressed="false">Brief · 4</button>
+          <button data-tier="none" aria-pressed="false">Not covered · 4</button>
+        </div></div>
+      <div class="explorer">
+        <div class="tiles" id="tiles" role="list"></div>
+        <aside class="detail" id="detail" aria-live="polite"></aside>
+      </div>
+    </section>
+
+    <!-- findings -->
+    <section class="card" id="findings">
+      <div class="ch"><h2>Findings <span>Explorer</span></h2><span class="note">Announcements are never read as outcomes</span></div>
+      <div class="filters">
+        <div id="classPills" class="seg wrapseg" role="group" aria-label="Filter by classification"></div>
+        <label class="sel">SDG<select id="sdgSel"></select></label>
+        <label class="sel grow">Search<input id="q" type="search" placeholder="e.g. rice, PhilHealth, EPIRA…"></label>
+      </div>
+      <p class="count" id="count" aria-live="polite"></p>
+      <div class="findings" id="findingList"></div>
+      <p class="fine">No finding is classed “Verified achievement” or “Development gap”: the summary has no independent verification and no established baselines or targets.</p>
+    </section>
+
+    <!-- congress -->
+    <div class="two">
+      <section class="card" id="congress">
+        <div class="ch"><h2>Recommendations <svg class="ic warn" viewBox="0 0 24 24"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17v.5"/></svg></h2><span class="chip com">Options, not enacted</span></div>
+        <p class="fine lead">What Congress can examine. Committee roles to be confirmed with the Legislative Secretariat.</p>
+        <div class="recs" id="acts"></div>
+      </section>
+      <section class="card" id="monitor">
+        <div class="ch"><h2>Accountability <span>Lens</span></h2><span class="note">Commitment → evidence → outcome → SDG</span></div>
+        <div class="chain" id="chain"></div>
+        <div class="notice amber"><b>Data gaps:</b> no baselines or targets in the SONA; lead agencies unnamed for most items. PSA, UN SDG Database and VNR data not yet incorporated.</div>
+        <div class="qbox"><ul id="qs"></ul><button class="btn" id="copyQ">Copy questions</button></div>
+      </section>
     </div>
-    <p class="count" id="count" aria-live="polite"></p>
-    <div class="findings" id="findingList"></div>
-    <p class="fine">No finding is classed “Verified achievement” or “Development gap”: the summary contains no independent verification and no established baselines or targets.</p>
-  </section>
 
-  <!-- CONGRESS -->
-  <section class="wrap block" id="congress">
-    <div class="sec-h"><h2>What can Congress do?</h2><p>Options for examination — proposed, not enacted; no outcome is assured. Committee roles should be confirmed with the Legislative Secretariat.</p></div>
-    <div class="acts" id="acts"></div>
-  </section>
+    <!-- youth -->
+    <section class="card" id="youth">
+      <div class="ch"><h2>Youth Agenda <span>Insights</span></h2><span class="note">2025 SDG Youth Agenda vs. the address · one stakeholder benchmark</span></div>
+      <div class="yhead">
+        <div class="ydonut"><div id="dYouth"></div><div class="legend" id="yLegend"></div></div>
+        <div class="gbars" id="gbars"></div>
+        <div class="minis" id="minis"></div>
+      </div>
+      <div class="seg" id="ystat" role="group" aria-label="Filter by status"></div>
+      <div class="ygroups" id="ygroups"></div>
+    </section>
 
-  <!-- MONITOR -->
-  <section class="wrap block" id="monitor">
-    <div class="sec-h"><h2>What should be monitored?</h2><p>Commitment → implementation evidence → public outcome → SDG target.</p></div>
-    <div class="chain" id="chain"></div>
-    <div class="notice amber"><b>Data gaps:</b> no baselines or targets in the SONA; lead agencies unnamed for most items. PSA, UN SDG Database and Voluntary National Review data are not yet incorporated.</div>
-    <div class="qbox">
-      <div><h3 class="mini">Oversight questions</h3><ul id="qs"></ul></div>
-      <button class="btn" id="copyQ">Copy questions</button>
-    </div>
-  </section>
+    <!-- method -->
+    <section class="card" id="method">
+      <div class="ch"><h2>Method <span>and limits</span></h2></div>
+      <div class="method">
+        <div><h3>Source</h3><p><i>The 2026 SONA: Summary and SDG Coverage Report</i> (July 2026), from the official transcript, Rappler and the Presidential Communications Office text, plus the 2025 SDG Youth Agenda (YFPH).</p></div>
+        <div><h3>Classification</h3><p>Extensive: named programs, figures or targets. Brief: in passing. Not covered: absent or incidental.</p></div>
+        <div><h3>Evidence limits</h3><p>Every figure is a statement made in the address and is unverified. Suggested indicators are standard UN SDG indicator names; no values are asserted.</p></div>
+        <div><h3>Neutrality</h3><p>Institutional, not partisan. No assessment of individuals or motives; proposed measures are not guaranteed solutions.</p></div>
+      </div>
+    </section>
+  </main>
 
-  <!-- YOUTH AGENDA -->
-  <section class="wrap block" id="youth">
-    <div class="sec-h"><h2>Cross-check: 2025 SDG Youth Agenda</h2><p>One stakeholder benchmark — 33 calls to action from the 2030 Youth Force in the Philippines, checked against what the address stated. Not an evaluation of program adequacy.</p></div>
-    <div class="ytotal" id="ytotal"></div>
-    <div class="toolbar" role="group" aria-label="Filter by status" id="ystat"></div>
-    <div class="ygroups" id="ygroups"></div>
-  </section>
-
-  <!-- METHOD -->
-  <section class="wrap block" id="method">
-    <div class="sec-h"><h2>Method and limits</h2></div>
-    <div class="method">
-      <div><h3>Source</h3><p><i>The 2026 SONA: Summary and SDG Coverage Report</i> (July 2026), built from the official transcript (The Summit Express), Rappler and the Presidential Communications Office text, plus the 2025 SDG Youth Agenda (YFPH).</p></div>
-      <div><h3>Classification</h3><p>Covered extensively: named programs, figures or targets. Mentioned briefly: in passing, without a dedicated program or figure. Not covered: absent or incidental.</p></div>
-      <div><h3>Evidence limits</h3><p>Every figure is a statement made in the address. Nothing here is independently verified, and progress ratings are withheld where baselines or targets are missing. Suggested indicators are standard UN SDG indicator names; no values are asserted.</p></div>
-      <div><h3>Neutrality</h3><p>This briefing is institutional, not partisan. It does not assess individuals or motives, and proposed measures are not presented as guaranteed solutions.</p></div>
-    </div>
-  </section>
-</main>
-
-<footer class="foot">
-  <div class="wrap">Source: The 2026 SONA: Summary and SDG Coverage Report (Jul 2026). All figures are claims made in the address. <a href="presentation.html">One-page presentation view</a> · <a href="SONA2026_SDG_Dashboard.pdf">PDF</a></div>
-</footer>
+  <footer class="foot">Source: The 2026 SONA: Summary and SDG Coverage Report (Jul 2026). All figures are claims made in the address. <a href="presentation.html">One-page presentation view</a> · <a href="SONA2026_SDG_Dashboard.pdf">PDF</a></footer>
+</div>
 
 <script src="assets/data.js"></script>
 <script src="assets/app.js"></script>
